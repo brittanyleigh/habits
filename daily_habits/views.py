@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def habits_list(request):
+    return render(request, 'daily_habits/habits_list.html', {})
