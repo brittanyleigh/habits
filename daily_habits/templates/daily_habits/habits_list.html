@@ -6,8 +6,11 @@
       <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
         {% for habit in habits %}
         <h4>{{ habit.eatHealthy }}</h4>
+        <h6>{{ habit.eatHealthyCompleted|yesno:"yeah,no,maybe" }}</h6>
         <h4>{{ habit.meditate }}</h4>
+        <h6>{{ habit.meditateCompleted|yesno:"yeah,no,maybe"  }}</h6>
         <h4>{{ habit.exercise }}</h4>
+        <h6>{{ habit.exerciseCompleted|yesno:"yeah,no,maybe"  }}</h6>
         {% endfor %}
         {% else %}
         <h2>Not logged in</h2>

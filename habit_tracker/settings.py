@@ -123,3 +123,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Custom
 LOGIN_REDIRECT_URL = 'habits_list'
+LOGIN_URL = 'home'
