@@ -2,8 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 class Habit(models.Model):
-    title = models.CharField(max_length=200)
-    completed = models.BooleanField(default=False)
+    title = models.CharField(max_length=200) 
 
     def __str__(self):
         return self.title
@@ -14,3 +13,9 @@ class Day(models.Model):
     eatHealthy = models.ForeignKey(Habit, related_name='eatHealthy', on_delete=models.CASCADE)
     meditate = models.ForeignKey(Habit, related_name='meditate', on_delete=models.CASCADE)
     exercise = models.ForeignKey(Habit, related_name='exercise', on_delete=models.CASCADE)
+    eatHealthyCompleted = models.BooleanField(default=False)
+    meditateCompleted = models.BooleanField(default=False)
+    exerciseCompleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.date.date())

@@ -1,10 +1,16 @@
-<html>
-    <head>
-        <title>Daily Habits</title>
-    </head>
-    <body>
-        <div>
-            <h1>Testing</h1>
-        </div>
-    </body>
-</html>
+{% extends 'daily_habits/base.html' %}
+
+{% block content %}
+    <div>
+	{% if request.user.is_authenticated %}
+      <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
+        {% for habit in habits %}
+        <h4>{{ habit.eatHealthy }}</h4>
+        <h4>{{ habit.meditate }}</h4>
+        <h4>{{ habit.exercise }}</h4>
+        {% endfor %}
+        {% else %}
+        <h2>Not logged in</h2>
+        {% endif %}
+    </div>
+ {% endblock %}

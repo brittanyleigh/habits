@@ -1,0 +1,14 @@
+{% load static %}
+<html>
+    <head>
+        <title>Breathe | Nourish | Move || Daily Habit Tracker</title>
+    </head>
+    <body>
+        <h1><a href="/">Breathe | Nourish | Move</a></h1>
+        <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
+        <h2><a href="{% url 'login' %}">Login</a></h2>
+        <h2><a href="{% url 'logout' %}">Logout</a></h2>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
