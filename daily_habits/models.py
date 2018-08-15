@@ -1,21 +1,25 @@
 from django.db import models
 from django.utils import timezone
-
-class Habit(models.Model):
-    title = models.CharField(max_length=200) 
-
-    def __str__(self):
-        return self.title
+from django.contrib.auth.models import User, AbstractUser
 
 class Day(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
-    eatHealthy = models.ForeignKey(Habit, related_name='eatHealthy', on_delete=models.CASCADE)
-    meditate = models.ForeignKey(Habit, related_name='meditate', on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Habit, related_name='exercise', on_delete=models.CASCADE)
     eatHealthyCompleted = models.BooleanField(default=False)
     meditateCompleted = models.BooleanField(default=False)
     exerciseCompleted = models.BooleanField(default=False)
 
     def __str__(self):
         return str(self.date.date())
+
+class UserInfo(models.Model): 
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    eatHealthy = models.CharField(max_length=56, default='Eat Well')
+    meditate = models.CharField(max_length=56, default='Meditate')
+    exercise = models.CharField(max_length=56, default='Exercise')
+    eatStreak = models.IntegerField(default=0)
+    meditateStreak = models.IntegerField(default=0)
+    exerciseStreak = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.user.username

@@ -1,0 +1,16 @@
+{% extends 'daily_habits/base.html' %}
+
+{% block content %}
+    <div>
+	{% if request.user.is_authenticated %}
+		<h2>Profile Settings</h2>
+		<form method="POST" class="post-form">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save btn btn-default">Save</button>
+		</form>
+    {% else %}
+	    <h2>Not logged in</h2>
+    {% endif %}
+    </div>
+ {% endblock %}

@@ -3,17 +3,19 @@
 {% block content %}
     <div>
 	{% if request.user.is_authenticated %}
-      <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
-        {% for habit in habits %}
-        <h4>{{ habit.eatHealthy }}</h4>
-        <h6>{{ habit.eatHealthyCompleted|yesno:"yeah,no,maybe" }}</h6>
-        <h4>{{ habit.meditate }}</h4>
-        <h6>{{ habit.meditateCompleted|yesno:"yeah,no,maybe"  }}</h6>
-        <h4>{{ habit.exercise }}</h4>
-        <h6>{{ habit.exerciseCompleted|yesno:"yeah,no,maybe"  }}</h6>
-        {% endfor %}
-        {% else %}
-        <h2>Not logged in</h2>
-        {% endif %}
+      	<form method="POST" class="post-form" id="habits-form">
+      		{% csrf_token %}
+      		<label for="eatHealthyCompleted">{{ profile.eatHealthy }} </label>
+		    <input id="eat_healthy" type="checkbox" name="eatHealthyCompleted" {% if habits.eatHealthyCompleted %} checked {% endif %}>
+
+			<label for="meditateCompleted">{{ profile.meditate }} </label>
+		    <input id="meditate" type="checkbox" name="meditateCompleted" {% if habits.meditateCompleted %} checked {% endif %}>
+
+		    <label for="exerciseCompleted">{{ profile.exercise }} </label>
+		    <input id="exercise" type="checkbox" name="exerciseCompleted" {% if habits.exerciseCompleted %} checked {% endif %}>
+	    </form>
+    {% else %}
+	    <h2>Not logged in</h2>
+    {% endif %}
     </div>
  {% endblock %}

@@ -2,11 +2,14 @@
 <html>
     <head>
         <title>Breathe | Nourish | Move || Daily Habit Tracker</title>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="{% static 'habits.js' %}"></script>
     </head>
     <body>
         <h1><a href="/">Breathe | Nourish | Move</a></h1>
         {% if request.user.is_authenticated %}
         <h2><a href="{% url 'logout' %}">Logout</a></h2>
+        <h2><a href="{% url 'profile' %}">Profile</a></h2>
         {% else %}
         <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
         <h2><a href="{% url 'login' %}">Login</a></h2>
