@@ -10,6 +10,7 @@
         {% if request.user.is_authenticated %}
         <h2><a href="{% url 'logout' %}">Logout</a></h2>
         <h2><a href="{% url 'profile' %}">Profile</a></h2>
+        <h2><a href="{% url 'streaks' %}">Your Streaks</a></h2>
         {% else %}
         <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
         <h2><a href="{% url 'login' %}">Login</a></h2>

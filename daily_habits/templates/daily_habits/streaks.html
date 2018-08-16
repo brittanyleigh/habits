@@ -4,7 +4,9 @@
     <div>
 	{% if request.user.is_authenticated %}
 		<h2>Your Streaks</h2>
-		<h4>{{ streaks.eat_streak }}</h4>
+		<h4>{% if eat %}{{ eat }}{% else %}0{% endif %}</h4>
+		<h4>{% if meditate %}{{ meditate }}{% else %}0{% endif %}</h4>
+		<h4>{% if exercise %}{{ exercise }}{% else %}0{% endif %}</h4>
     {% endif %}
     </div>
  {% endblock %}

@@ -17,9 +17,6 @@ class UserInfo(models.Model):
     eatHealthy = models.CharField(max_length=56, default='Eat Well')
     meditate = models.CharField(max_length=56, default='Meditate')
     exercise = models.CharField(max_length=56, default='Exercise')
-    eatStreak = models.IntegerField(default=0)
-    meditateStreak = models.IntegerField(default=0)
-    exerciseStreak = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username
