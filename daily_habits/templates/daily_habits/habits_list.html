@@ -3,29 +3,31 @@
 {% block content %}
     <div>
 	{% if request.user.is_authenticated %}
-      	<form method="POST" class="post-form flex-content" id="habits-form">
+      	<form method="POST" class="post-form flex-content home" id="habits-form">
       		{% csrf_token %}
-      		<div class="habit blue {% if not habits.eatHealthyCompleted %}incomplete{% endif %}">
-      			<div class="list-item">
-		      		<label for="eatHealthyCompleted">{{ profile.eatHealthy }} </label>
-				    <input id="eat_healthy" type="checkbox" name="eatHealthyCompleted" {% if habits.eatHealthyCompleted %} checked {% endif %}>
+      		<div class="habit blue {% if not habits.habitOneCompleted %}incomplete{% endif %}">
+      			<div class="list-item checkbox">
+      				<input id="habitOneCompleted" type="checkbox" name="habitOneCompleted" {% if habits.habitOneCompleted %} checked {% endif %}>
+		      		<label for="habitOneCompleted" class="{% if habits.habitOneCompleted %}checked{% endif %}">{{ profile.habitOne }} </label>
 				</div>
 			</div>
-			<div class="habit green {% if not habits.meditateCompleted %}incomplete{% endif %}">
-				<div class="list-item">
-					<label for="meditateCompleted">{{ profile.meditate }} </label>
-				    <input id="meditate" type="checkbox" name="meditateCompleted" {% if habits.meditateCompleted %} checked {% endif %}>
+			<div class="habit green {% if not habits.habitTwoCompleted %}incomplete{% endif %}">
+				<div class="list-item checkbox">
+				    <input id="habitTwoCompleted" type="checkbox" name="habitTwoCompleted" {% if habits.habitTwoCompleted %} checked {% endif %}>
+					<label for="habitTwoCompleted" class="{% if habits.habitTwoCompleted %}checked{% endif %}">{{ profile.habitTwo }} </label>
 				</div>
 			</div>
-			<div class="habit purple {% if not habits.exerciseCompleted %}incomplete{% endif %}">
-				<div class="list-item">
-				    <label for="exerciseCompleted">{{ profile.exercise }} </label>
-				    <input id="exercise" type="checkbox" name="exerciseCompleted" {% if habits.exerciseCompleted %} checked {% endif %}>
+			<div class="habit purple {% if not habits.habitThreeCompleted %}incomplete{% endif %}">
+				<div class="list-item checkbox">
+				    <input id="habitThreeCompleted" type="checkbox" name="habitThreeCompleted" {% if habits.habitThreeCompleted %} checked {% endif %}>
+				    <label for="habitThreeCompleted" class="{% if habits.habitThreeCompleted %} checked {% endif %}">{{ profile.habitThree }} </label>
 				</div>
 			</div>
 	    </form>
-	    <div class="streaks-btn list-item">
-		    <h4><a href="{% url 'streaks' %}">View Your Streaks</a></h4>
+	    <div class="habit gray">
+		    <a class="default-btn list-item" href="{% url 'streaks' %}">
+			    <h4><span>View Your Streaks</span></h4>
+			</a>
 		</div>
     {% else %}
 	    <h2>Not logged in</h2>

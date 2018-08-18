@@ -1,17 +1,37 @@
 {% extends 'daily_habits/base.html' %}
 
 {% block content %}
-    <div>
 	{% if request.user.is_authenticated %}
-		<h2>Profile Settings</h2>
-		<h2><a href="{% url 'logout' %}">Logout</a></h2>
-		<form method="POST" class="post-form">
+	<form method="POST" class="post-form flex-content profile">
 			{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit" class="save btn btn-default">Save</button>
-		</form>
+		<div class="habit blue">
+			<div class="list-item">
+				<label for="id_habitOne">Habit One Text:</label>
+				<input type="text" name="habitOne" value="{{ profile.habitOne }}" maxlength="20" required="" id="id_habitOne">
+			</div>
+		</div>
+		<div class="habit green">
+			<div class="list-item">
+				<label for="id_habitTwo">Habit Two Text:</label>
+				<input type="text" name="habitTwo" value="{{ profile.habitTwo }}" maxlength="20" required="" id="id_habitTwo">
+			</div>
+		</div>
+		<div class="habit purple">
+			<div class="list-item">
+				<label for="id_habitThree">Habit One Text:</label>
+				<input type="text" name="habitThree" value="{{ profile.habitThree }}" maxlength="20" required="" id="id_habitThree">
+			</div>
+		</div>
+		<div class="habit gray">
+	  		<button type="submit" class="default-btn list-item">
+	  			<h4><span>Save</span></h4>
+	  		</button>	
+	  		<a class="secondary-btn list-item" href="{% url 'logout' %}">
+	  			<h4><span>Logout</span></h4>
+	  		</a>
+	  	</div>
+	</form>
     {% else %}
 	    <h2>Not logged in</h2>
     {% endif %}
-    </div>
  {% endblock %}

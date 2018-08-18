@@ -58,7 +58,7 @@ def profile(request):
             return redirect('/')
     else:
         form = ProfileForm()
-    return render(request, 'daily_habits/profile.html', {'form': form})
+    return render(request, 'daily_habits/profile.html', {'form': form, 'profile': profile_settings})
 
 @login_required
 def streaks(request):
@@ -68,26 +68,26 @@ def streaks(request):
     yesterday_habits = Day.objects.filter(date__date=yesterday, user=request.user).first()
     profile = UserInfo.objects.filter(user=request.user).first()
 
-    eatStreakStart = Day.objects.filter(date__lte=yesterday, eatHealthyCompleted=False, user=request.user).order_by('-date').first()
-    eatStreak = (today - eatStreakStart.date.date()).days 
-    if not yesterday_habits.eatHealthyCompleted:
-        eatStreak = 0
-    if today_habits.eatHealthyCompleted:
-        eatStreak += 1
+    habitOneStreakStart = Day.objects.filter(date__lte=yesterday, habitOneCompleted=False, user=request.user).order_by('-date').first()
+    habitOneStreak = (today - habitOneStreakStart.date.date()).days 
+    if not yesterday_habits.habitOneCompleted:
+        habitOneStreak = 0
+    if today_habits and today_habits.habitOneCompleted:
+        habitOneStreak += 1
 
-    meditateStreakStart = Day.objects.filter(date__lte=yesterday, meditateCompleted=False, user=request.user).order_by('-date').first()
-    meditateStreak = (today - meditateStreakStart.date.date()).days 
-    if not yesterday_habits.meditateCompleted:
-        meditateStreak = 0
-    if today_habits.meditateCompleted:
-        meditateStreak += 1
+    habitTwoStreakStart = Day.objects.filter(date__lte=yesterday, habitTwoCompleted=False, user=request.user).order_by('-date').first()
+    habitTwoStreak = (today - habitTwoStreakStart.date.date()).days 
+    if not yesterday_habits.habitTwoCompleted:
+        habitTwoStreak = 0
+    if today_habits and today_habits.habitTwoCompleted:
+        habitTwoStreak += 1
 
-    exerciseStreakStart = Day.objects.filter(date__lte=yesterday, exerciseCompleted=False, user=request.user).order_by('-date').first()
-    exerciseStreak = (today - exerciseStreakStart.date.date()).days 
-    if not yesterday_habits.exerciseCompleted:
-        exerciseStreak = 0
-    if today_habits.exerciseCompleted:
-        exerciseStreak += 1
+    habitThreeStreakStart = Day.objects.filter(date__lte=yesterday, habitThreeCompleted=False, user=request.user).order_by('-date').first()
+    habitThreeStreak = (today - habitThreeStreakStart.date.date()).days 
+    if not yesterday_habits.habitThreeCompleted:
+        habitThreeStreak = 0
+    if today_habits and today_habits.habitThreeCompleted:
+        habitThreeStreak += 1
 
-    return render(request, 'daily_habits/streaks.html', {'eat': eatStreak, 'meditate': meditateStreak, 'exercise': exerciseStreak})
+    return render(request, 'daily_habits/streaks.html', {'habitOne': habitOneStreak, 'habitTwo': habitTwoStreak, 'habitThree': habitThreeStreak, 'profile': profile})
 

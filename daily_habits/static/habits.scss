@@ -60,6 +60,20 @@ a {
 	label {
 	    font-size: 56px;
 	    color: white;
+        
+	    &:hover {
+	    	cursor: pointer;
+	    }
+	}
+	h3 {
+		font-size: 56px;
+	    color: white;
+	}
+}
+
+.home {
+	label {
+		margin-left: -12px; // to account for checkbox element
 	}
 }
 
@@ -79,6 +93,13 @@ a {
 	background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
 }
 
+.gray {
+    background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%);
+}
+
+form {
+	margin-bottom: 0px;
+}
 .list-item {
     max-width: 768px;
     margin: 0 auto;
@@ -88,17 +109,113 @@ a {
     justify-content: center;
 }
 
-.streaks-btn {
+.default-btn, .secondary-btn {
 	min-height: 75px;
 	margin: 30px auto;
+	border: none;
+    padding: 0px;
+    background: transparent;
+    text-decoration: none;
 
-	a {
+	h4 {
+		padding: 25px 0px;
+	    border-radius: 10px;
+	    background: white;
+	    margin: 0px;
+
+		&:hover {
+		    margin-top: 4px;
+		    cursor: pointer;
+		}
+	}
+
+	span {
+		padding: 25px 50px;
 	    font-size: 28px;
-	    padding: 25px 50px;
-	    border: solid 1px;
 	    text-decoration: none;
 	    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
 	    	-webkit-background-clip: text;
 			  -webkit-text-fill-color: transparent;
+        font-family: "Quicksand", sans-serif;
+	    font-weight: 900;
+	    border-radius: 10px;
+	    border: solid 1px;
+	    border-bottom: solid 5px;
+	    border-color: $gray;
+
+	    &:hover {
+		    text-decoration: none;
+		    border-bottom: solid 1px $gray;
+		}
+	}
+}
+
+.secondary-btn {
+	margin-top: 0px;
+	h4 {
+		padding: 10px 0px;
+	}
+
+	span {
+		background: $gray;
+		border-color: darken($gray, 10%);
+		-webkit-background-clip: unset;
+			  -webkit-text-fill-color: unset;
+	    color: white;
+	    border-radius: 10px;
+        padding: 10px 50px;
+	    font-size: 24px;
+	}
+}
+
+.checkbox {
+	input[type="checkbox"] {
+	    opacity: 0;
+	}
+	label::before{
+      font-family: "Font Awesome 5 Free";
+	  font-weight: 400;
+	  content: "\f111";   
+	  margin-right: 15px;
+	}
+	.checked::before {
+	  font-family: "Font Awesome 5 Free";
+	  font-weight: 900;
+	  content: "\f058"; 
+	}
+}
+
+.streaks {
+	h3, h4, h5 {
+		font-weight: 500;
+		color: #fff;
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+	h4 {
+		font-size: 32px;
+	}
+	h5 {
+	    font-size: 20px;
+	}
+	h3 {
+	}
+}
+
+.profile {
+	label {
+		font-size: 32px;
+		margin: 0px 10px;
+	}
+
+	input[type="text"] {
+	    font-family: "Quicksand", sans-serif;
+	    font-size: 32px;
+	    color: #dadada;
+	}
+
+	button[type="submit"]:hover {
+		margin-top: 34px;
+		cursor: pointer;
 	}
 }

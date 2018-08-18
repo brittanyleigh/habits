@@ -44,6 +44,14 @@ a {
   .habit label {
     font-size: 56px;
     color: white; }
+    .habit label:hover {
+      cursor: pointer; }
+  .habit h3 {
+    font-size: 56px;
+    color: white; }
+
+.home label {
+  margin-left: -12px; }
 
 .incomplete {
   opacity: .5; }
@@ -57,6 +65,12 @@ a {
 .purple {
   background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%); }
 
+.gray {
+  background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%); }
+
+form {
+  margin-bottom: 0px; }
+
 .list-item {
   max-width: 768px;
   margin: 0 auto;
@@ -65,16 +79,83 @@ a {
   align-items: center;
   justify-content: center; }
 
-.streaks-btn {
+.default-btn, .secondary-btn {
   min-height: 75px;
-  margin: 30px auto; }
-  .streaks-btn a {
-    font-size: 28px;
+  margin: 30px auto;
+  border: none;
+  padding: 0px;
+  background: transparent;
+  text-decoration: none; }
+  .default-btn h4, .secondary-btn h4 {
+    padding: 25px 0px;
+    border-radius: 10px;
+    background: white;
+    margin: 0px; }
+    .default-btn h4:hover, .secondary-btn h4:hover {
+      margin-top: 4px;
+      cursor: pointer; }
+  .default-btn span, .secondary-btn span {
     padding: 25px 50px;
-    border: solid 1px;
+    font-size: 28px;
     text-decoration: none;
     background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    -webkit-text-fill-color: transparent;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 900;
+    border-radius: 10px;
+    border: solid 1px;
+    border-bottom: solid 5px;
+    border-color: #dadada; }
+    .default-btn span:hover, .secondary-btn span:hover {
+      text-decoration: none;
+      border-bottom: solid 1px #dadada; }
+
+.secondary-btn {
+  margin-top: 0px; }
+  .secondary-btn h4 {
+    padding: 10px 0px; }
+  .secondary-btn span {
+    background: #dadada;
+    border-color: #c1c1c1;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 50px;
+    font-size: 24px; }
+
+.checkbox input[type="checkbox"] {
+  opacity: 0; }
+.checkbox label::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  content: "\f111";
+  margin-right: 15px; }
+.checkbox .checked::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f058"; }
+
+.streaks h3, .streaks h4, .streaks h5 {
+  font-weight: 500;
+  color: #fff;
+  margin-right: 5px;
+  margin-left: 5px; }
+.streaks h4 {
+  font-size: 32px; }
+.streaks h5 {
+  font-size: 20px; }
+
+.profile label {
+  font-size: 32px;
+  margin: 0px 10px; }
+.profile input[type="text"] {
+  font-family: "Quicksand", sans-serif;
+  font-size: 32px;
+  color: #dadada; }
+.profile button[type="submit"]:hover {
+  margin-top: 34px;
+  cursor: pointer; }
 
 /*# sourceMappingURL=habits.css.map */
