@@ -1,16 +1,19 @@
 {% load static %}
 <html>
     <head>
-        <title>Breathe | Nourish | Move || Daily Habit Tracker</title>
+        <title>Essentials || Daily Habit Tracker</title>
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
         <script type="text/javascript" src="{% static 'habits.js' %}"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'habits.css' %}">
     </head>
     <body>
-        <h1><a href="/">Breathe | Nourish | Move</a></h1>
         {% if request.user.is_authenticated %}
-        <h2><a href="{% url 'logout' %}">Logout</a></h2>
-        <h2><a href="{% url 'profile' %}">Profile</a></h2>
-        <h2><a href="{% url 'streaks' %}">Your Streaks</a></h2>
+        <div class="header">
+            <h4><a href="/"><i class="fas fa-home"></i></a></h4>
+            <h1>Essentials</h1>
+            <h4><a href="{% url 'profile' %}"><i class="fas fa-cog"></i></a></h4>
+        </div>
         {% else %}
         <h2><a href="{% url 'signup' %}">Sign Up</a></h2>
         <h2><a href="{% url 'login' %}">Login</a></h2>

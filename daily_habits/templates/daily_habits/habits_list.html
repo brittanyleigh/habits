@@ -3,17 +3,30 @@
 {% block content %}
     <div>
 	{% if request.user.is_authenticated %}
-      	<form method="POST" class="post-form" id="habits-form">
+      	<form method="POST" class="post-form flex-content" id="habits-form">
       		{% csrf_token %}
-      		<label for="eatHealthyCompleted">{{ profile.eatHealthy }} </label>
-		    <input id="eat_healthy" type="checkbox" name="eatHealthyCompleted" {% if habits.eatHealthyCompleted %} checked {% endif %}>
-
-			<label for="meditateCompleted">{{ profile.meditate }} </label>
-		    <input id="meditate" type="checkbox" name="meditateCompleted" {% if habits.meditateCompleted %} checked {% endif %}>
-
-		    <label for="exerciseCompleted">{{ profile.exercise }} </label>
-		    <input id="exercise" type="checkbox" name="exerciseCompleted" {% if habits.exerciseCompleted %} checked {% endif %}>
+      		<div class="habit blue {% if not habits.eatHealthyCompleted %}incomplete{% endif %}">
+      			<div class="list-item">
+		      		<label for="eatHealthyCompleted">{{ profile.eatHealthy }} </label>
+				    <input id="eat_healthy" type="checkbox" name="eatHealthyCompleted" {% if habits.eatHealthyCompleted %} checked {% endif %}>
+				</div>
+			</div>
+			<div class="habit green {% if not habits.meditateCompleted %}incomplete{% endif %}">
+				<div class="list-item">
+					<label for="meditateCompleted">{{ profile.meditate }} </label>
+				    <input id="meditate" type="checkbox" name="meditateCompleted" {% if habits.meditateCompleted %} checked {% endif %}>
+				</div>
+			</div>
+			<div class="habit purple {% if not habits.exerciseCompleted %}incomplete{% endif %}">
+				<div class="list-item">
+				    <label for="exerciseCompleted">{{ profile.exercise }} </label>
+				    <input id="exercise" type="checkbox" name="exerciseCompleted" {% if habits.exerciseCompleted %} checked {% endif %}>
+				</div>
+			</div>
 	    </form>
+	    <div class="streaks-btn list-item">
+		    <h4><a href="{% url 'streaks' %}">View Your Streaks</a></h4>
+		</div>
     {% else %}
 	    <h2>Not logged in</h2>
     {% endif %}
