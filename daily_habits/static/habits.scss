@@ -25,6 +25,8 @@ a {
     	background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
     	-webkit-background-clip: text;
 		  -webkit-text-fill-color: transparent;
+	    margin-right: auto;
+	    margin-left: auto;
     }
 
     h4 {
@@ -202,20 +204,41 @@ form {
 	}
 }
 
-.profile {
+.profile, .signup {
+
 	label {
 		font-size: 32px;
 		margin: 0px 10px;
 	}
 
-	input[type="text"] {
+	input[type="text"], input[type="password"] {
 	    font-family: "Quicksand", sans-serif;
 	    font-size: 32px;
-	    color: #dadada;
+        color: #dadada;
+        -webkit-box-shadow: 0 0 0px 1000px white inset;
 	}
 
 	button[type="submit"]:hover {
 		margin-top: 34px;
 		cursor: pointer;
 	}
+	.list-item {
+		flex-direction: column;
+	}
+}
+
+.signup {
+	.habit:nth-child(2) {
+	    padding: 30px 0px;
+	    min-height: calc(100% - 143px);
+	}
+}
+
+.logged-out {
+    height: calc(100% - 83px);
+
+    .habit {
+    	height: 100%;
+    	padding-top: 50px;
+    }
 }

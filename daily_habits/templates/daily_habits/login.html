@@ -1,0 +1,26 @@
+{% extends 'daily_habits/base.html' %}
+
+{% block content %}
+  <form method="post" class="post-form flex-content login signup">
+    {% csrf_token %}
+    <div class="habit blue">
+        <div class="list-item">
+            {% for field in form %}
+
+              <div class="list-item">
+                {{ field.label_tag }}<br>
+                {{ field }}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </div>
+            {% endfor %}
+        </div>
+        <div class="list-item">
+            <button type="submit" class="default-btn list-item">
+                <h4><span>Login</span></h4>
+            </button>
+        </div>
+    </div>
+  </form>
+{% endblock %}

@@ -17,7 +17,9 @@ a {
   .header h1 {
     background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    -webkit-text-fill-color: transparent;
+    margin-right: auto;
+    margin-left: auto; }
   .header h4 {
     font-size: 24px; }
 
@@ -147,15 +149,28 @@ form {
 .streaks h5 {
   font-size: 20px; }
 
-.profile label {
+.profile label, .signup label {
   font-size: 32px;
   margin: 0px 10px; }
-.profile input[type="text"] {
+.profile input[type="text"], .profile input[type="password"], .signup input[type="text"], .signup input[type="password"] {
   font-family: "Quicksand", sans-serif;
   font-size: 32px;
-  color: #dadada; }
-.profile button[type="submit"]:hover {
+  color: #dadada;
+  -webkit-box-shadow: 0 0 0px 1000px white inset; }
+.profile button[type="submit"]:hover, .signup button[type="submit"]:hover {
   margin-top: 34px;
   cursor: pointer; }
+.profile .list-item, .signup .list-item {
+  flex-direction: column; }
+
+.signup .habit:nth-child(2) {
+  padding: 30px 0px;
+  min-height: calc(100% - 143px); }
+
+.logged-out {
+  height: calc(100% - 83px); }
+  .logged-out .habit {
+    height: 100%;
+    padding-top: 50px; }
 
 /*# sourceMappingURL=habits.css.map */

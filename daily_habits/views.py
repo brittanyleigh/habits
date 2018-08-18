@@ -91,3 +91,4 @@ def streaks(request):
 
     return render(request, 'daily_habits/streaks.html', {'habitOne': habitOneStreak, 'habitTwo': habitTwoStreak, 'habitThree': habitThreeStreak, 'profile': profile})
 
+

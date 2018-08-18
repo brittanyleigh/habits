@@ -2,11 +2,23 @@
 
 {% block content %}
 <div>
-  <h2>Sign up</h2>
-  <form method="post">
+  <form method="post" class="post-form flex-content signup">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
+    <div class="habit purple">
+        {% for field in form %}
+
+          <div class="list-item">
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <button type="submit" class="default-btn list-item">
+            <h4><span>Sign up</span></h4>
+        </button>
+    </div>
   </form>
 </div>
 {% endblock %}

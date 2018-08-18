@@ -1,6 +1,14 @@
 {% extends 'daily_habits/base.html' %}
 
 {% block content %}
-    <div>
+    <div class="flex-content logged-out">
+        <div class="habit green">
+            <a href="{% url 'signup' %}" class="default-btn list-item">
+                <h4><span>Sign Up</span></h4>
+            </a>
+            <a href="{% url 'login' %}" class="default-btn list-item">
+                <h4><span>Login</span></h4>
+            </a>
+        </div>
     </div>
  {% endblock %}
