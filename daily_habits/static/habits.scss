@@ -30,7 +30,8 @@ a {
     }
 
     h4 {
-    	font-size: 24px;
+    	font-size: 36px;
+	    margin: 0px;
     }
 }
 
@@ -62,6 +63,13 @@ a {
 	label {
 	    font-size: 56px;
 	    color: white;
+	    display: flex;
+		align-items: center;	    
+
+	    @media screen and (max-width: 650px){
+    	    font-size: 36px;
+		    padding: 15px;
+	    }
         
 	    &:hover {
 	    	cursor: pointer;
@@ -88,11 +96,11 @@ a {
 }
 
 .green {
-	background-image: linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
+	background-image: linear-gradient(to top, #bae15d 0%, #00e3ae 100%);
 }
 
 .purple {
-	background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
+	background-image: linear-gradient(to top, #9f93f1 0%, #8368ad 100%);
 }
 
 .gray {
@@ -109,6 +117,11 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+
+    @media screen and (max-width: 650px){
+    	min-height: 125px;
+    }
 }
 
 .default-btn, .secondary-btn {
@@ -120,10 +133,10 @@ form {
     text-decoration: none;
 
 	h4 {
-		padding: 25px 0px;
 	    border-radius: 10px;
 	    background: white;
-	    margin: 0px;
+	    margin: 0px 25px;
+	    text-align: center;
 
 		&:hover {
 		    margin-top: 4px;
@@ -144,6 +157,7 @@ form {
 	    border: solid 1px;
 	    border-bottom: solid 5px;
 	    border-color: $gray;
+        display: block;
 
 	    &:hover {
 		    text-decoration: none;
@@ -154,9 +168,6 @@ form {
 
 .secondary-btn {
 	margin-top: 0px;
-	h4 {
-		padding: 10px 0px;
-	}
 
 	span {
 		background: $gray;
@@ -191,16 +202,20 @@ form {
 	h3, h4, h5 {
 		font-weight: 500;
 		color: #fff;
-		margin-right: 5px;
-		margin-left: 5px;
+		margin: 5px;
 	}
 	h4 {
 		font-size: 32px;
+		width: 100%;
 	}
 	h5 {
 	    font-size: 20px;
 	}
 	h3 {
+	}
+	.list-item {
+	    padding: 25px 15px;
+	    flex-wrap: wrap;
 	}
 }
 
@@ -209,6 +224,10 @@ form {
 	label {
 		font-size: 32px;
 		margin: 0px 10px;
+
+		@media screen and (max-width: 650px){
+			font-size: 24px;
+		}
 	}
 
 	input[type="text"], input[type="password"] {
@@ -216,6 +235,16 @@ form {
 	    font-size: 32px;
         color: #dadada;
         -webkit-box-shadow: 0 0 0px 1000px white inset;
+        border: solid 1px #dadada;
+	    border-radius: 10px;
+	    margin-top: 5px;
+	    padding: 5px;
+
+	    @media screen and (max-width: 650px){
+    	    max-width: 250px;
+		    margin-bottom: 25px;
+		    font-size: 24px;
+	    }
 	}
 
 	button[type="submit"]:hover {

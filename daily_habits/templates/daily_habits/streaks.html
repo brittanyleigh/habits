@@ -5,21 +5,21 @@
 	{% if request.user.is_authenticated %}
 		<div class="habit blue {% if not habitOne %}incomplete{% endif %}">
 			<div class="list-item">
-				<h4>{{ profile.habitOne }} Streak: </h4>
+				<h4>{% if profile.habitOne %}{{ profile.habitOne }}{% else %}Eat Healthy{% endif %} Streak </h4>
 				<h3>{% if habitOne %}{{ habitOne }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
 		</div>
 		<div class="habit green {% if not habitTwo %}incomplete{% endif %}">
 			<div class="list-item">
-				<h4>{{ profile.habitTwo }} Streak: </h4>
+				<h4>{% if profile.habitTwo %}{{ profile.habitTwo }}{% else %}Meditate{% endif %} Streak </h4>
 				<h3>{% if habitTwo %}{{ habitTwo }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
 		</div>
 		<div class="habit purple {% if not habitThree %}incomplete{% endif %}">
 			<div class="list-item">
-				<h4>{{ profile.habitThree }} Streak: </h4>
+				<h4>{% if profile.habitThree %}{{ profile.habitThree }}{% else %}Exercise{% endif %} Streak </h4>
 				<h3>{% if habitThree %}{{ habitThree }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
