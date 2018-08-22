@@ -7,14 +7,21 @@ a {
   color: #dadada; }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   max-width: 768px;
   margin: 0 auto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   color: #dadada;
   padding: 0px 15px; }
   .header h1 {
+    background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
     background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -25,9 +32,18 @@ a {
     margin: 0px; }
 
 .flex-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center; }
 
 .blue {
@@ -47,7 +63,11 @@ a {
   .habit label {
     font-size: 56px;
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center; }
     @media screen and (max-width: 650px) {
       .habit label {
@@ -66,15 +86,19 @@ a {
   opacity: .5; }
 
 .blue {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#48c6ef), to(#6f86d6));
   background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); }
 
 .green {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#bae15d), to(#00e3ae));
   background-image: linear-gradient(to top, #bae15d 0%, #00e3ae 100%); }
 
 .purple {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#9f93f1), to(#8368ad));
   background-image: linear-gradient(to top, #9f93f1 0%, #8368ad 100%); }
 
 .gray {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#dadada));
   background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%); }
 
 form {
@@ -84,8 +108,14 @@ form {
   max-width: 768px;
   margin: 0 auto;
   min-height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   text-align: center; }
   @media screen and (max-width: 650px) {
@@ -111,6 +141,7 @@ form {
     padding: 25px 50px;
     font-size: 28px;
     text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
     background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -160,6 +191,7 @@ form {
   font-size: 20px; }
 .streaks .list-item {
   padding: 25px 15px;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
 .profile label, .signup label {
@@ -186,6 +218,9 @@ form {
   margin-top: 34px;
   cursor: pointer; }
 .profile .list-item, .signup .list-item {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column; }
 
 .signup .habit:nth-child(2) {
