@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+TEMPLATE_DIRS = (os.path.join(BASE_DIR , 'daily_habits/templates'),)
+
 WSGI_APPLICATION = 'habit_tracker.wsgi.application'
 
 

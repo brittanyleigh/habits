@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+from daily_habits import views as habits_views
+from django.conf.urls import handler404
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,3 +27,5 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('', include('daily_habits.urls')),
 ]
+
+handler404 = 'daily_habits.views.error_404_view'

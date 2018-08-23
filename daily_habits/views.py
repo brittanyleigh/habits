@@ -4,6 +4,7 @@ from datetime import date, timedelta
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from .models import Day, UserInfo
 from .forms import DayForm, ProfileForm
@@ -73,31 +74,34 @@ def streaks(request):
         habitOneStreak = (today - habitOneStreakStart.date.date()).days 
         if yesterday_habits and not yesterday_habits.habitOneCompleted:
             habitOneStreak = 0
-        if today_habits and today_habits.habitOneCompleted:
-            habitOneStreak += 1
     else:
         habitOneStreak = 0
+    if today_habits and today_habits.habitOneCompleted:
+            habitOneStreak += 1
 
     habitTwoStreakStart = Day.objects.filter(date__lte=yesterday, habitTwoCompleted=False, user=request.user).order_by('-date').first()
     if habitTwoStreakStart:
         habitTwoStreak = (today - habitTwoStreakStart.date.date()).days 
         if yesterday_habits and not yesterday_habits.habitTwoCompleted:
             habitTwoStreak = 0
-        if today_habits and today_habits.habitTwoCompleted:
-            habitTwoStreak += 1
     else:
         habitTwoStreak = 0
+    if today_habits and today_habits.habitTwoCompleted:
+        habitTwoStreak += 1
+    
 
     habitThreeStreakStart = Day.objects.filter(date__lte=yesterday, habitThreeCompleted=False, user=request.user).order_by('-date').first()
     if habitThreeStreakStart:
         habitThreeStreak = (today - habitThreeStreakStart.date.date()).days 
         if yesterday_habits and not yesterday_habits.habitThreeCompleted:
             habitThreeStreak = 0
-        if today_habits and today_habits.habitThreeCompleted:
-            habitThreeStreak += 1
     else:
         habitThreeStreak = 0
+    if today_habits and today_habits.habitThreeCompleted:
+            habitThreeStreak += 1
 
     return render(request, 'daily_habits/streaks.html', {'habitOne': habitOneStreak, 'habitTwo': habitTwoStreak, 'habitThree': habitThreeStreak, 'profile': profile})
 
-
+def error_404_view(request, exception):
+    data = {}
+    return render(request,'daily_habits/404.html', data)

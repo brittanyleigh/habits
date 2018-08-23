@@ -5,14 +5,14 @@
     {% csrf_token %}
     <div class="habit blue">
         <div class="list-item">
+            {% if form.errors %}
+                <p class="error">Incorrect username or password</p>
+            {% endif %}
             {% for field in form %}
 
               <div class="list-item">
                 {{ field.label_tag }}
                 {{ field }}
-                {% for error in field.errors %}
-                  <p style="color: red">{{ error }}</p>
-                {% endfor %}
               </div>
             {% endfor %}
         </div>
