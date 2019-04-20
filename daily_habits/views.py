@@ -77,7 +77,7 @@ def streaks(request):
     else:
         habitOneStreak = 0
     if today_habits and today_habits.habitOneCompleted:
-            habitOneStreak += 1
+        habitOneStreak += 1
 
     habitTwoStreakStart = Day.objects.filter(date__lte=yesterday, habitTwoCompleted=False, user=request.user).order_by('-date').first()
     if habitTwoStreakStart:
@@ -98,7 +98,7 @@ def streaks(request):
     else:
         habitThreeStreak = 0
     if today_habits and today_habits.habitThreeCompleted:
-            habitThreeStreak += 1
+        habitThreeStreak += 1
 
     return render(request, 'daily_habits/streaks.html', {'habitOne': habitOneStreak, 'habitTwo': habitTwoStreak, 'habitThree': habitThreeStreak, 'profile': profile})
 

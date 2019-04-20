@@ -6,14 +6,14 @@
         <script type="text/javascript" src="{% static 'habits.js' %}"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'habits.css' %}">
-        <link rel="apple-touch-icon" sizes="180x180" href="/daily_habits/static/images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/daily_habits/static/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/daily_habits/static/images/favicon-16x16.png">
-        <link rel="manifest" href="/daily_habits/static/images/site.webmanifest">
-        <link rel="mask-icon" href="/daily_habits/static/images/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/daily_habits/static/images/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'images/site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'images/safari-pinned-tab.svg' %}" color="#5bbad5">
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
         <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/daily_habits/static/images/browserconfig.xml">
+        <meta name="msapplication-config" content="{% static 'images/browserconfig.xml' %}">
         <meta name="theme-color" content="#ffffff">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta charset="UTF-8">
@@ -26,9 +26,9 @@
             <h4><a href="{% url 'profile' %}"><i class="fas fa-cog"></i></a></h4>
         </div>
         {% else %}
-        <div class="header">     
+        <div class="header">
             <h1><a href="/">Essentials</a></h1>
-        </div>        
+        </div>
         {% endif %}
         {% block content %}
         {% endblock %}
