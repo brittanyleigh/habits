@@ -6,10 +6,33 @@ $gray: #dadada;
 body {
 	margin: 0px;
 	font-family: $font-family;
+	background: url('images/symphony.png');
+  background-size: 175px;
 }
 
 a {
 	color: $gray;
+}
+.container {
+	max-width: 768px;
+	margin: 15px auto;
+	border: solid 10px $gray;
+	border-radius: 25px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.main {
+	border: solid 2px #fff;
+	border-radius: 25px;
+	background: #fff;
+	-webkit-box-flex: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 }
 
 .header {
@@ -19,13 +42,14 @@ a {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    max-width: 768px;
-    margin: 0 auto;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     color: $gray;
     padding: 0px 15px;
+    background: white;
+		border-top-left-radius: 15px;
+		border-top-right-radius: 15px;
 
     h1 {
     	background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
@@ -127,8 +151,10 @@ a {
 }
 
 .gray {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#dadada));
-    background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#dadada));
+  background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 
 form {
