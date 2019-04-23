@@ -4,12 +4,12 @@ $(document).ready(function() {
 	    $.post('/', $(this).serialize(), function(data){ });
 	    e.preventDefault();
 	});
-	
+
 	$('input:checkbox').on('change', function(e){
 	  this.form.submit();
 	});
 
-	$('.checkbox input:checkbox').on('click', function(){
+	$('.habit__checkbox input:checkbox').on('click', function(){
 		$(this).siblings('label').addClass('checked');
 	});
 });

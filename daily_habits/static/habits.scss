@@ -20,6 +20,7 @@ body {
 
 a {
 	color: $neutral;
+	text-decoration: none;
 }
 .container {
 	max-width: 768px;
@@ -41,7 +42,8 @@ a {
 .main {
 	position: relative;
 	border: solid 2px #fff;
-	border-radius: 25px;
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
 	background: #fff;
 	-webkit-box-flex: 1;
 	    -ms-flex-positive: 1;
@@ -81,6 +83,12 @@ a {
     	font-size: 36px;
 	    margin: 0px;
     }
+
+		&__a {
+			&:hover, &:focus, &:active {
+				color: darken($neutral, 10%);
+			}
+		}
 }
 
 .nav {
@@ -159,9 +167,15 @@ a {
 					-ms-flex-direction: column;
 							flex-direction: column;
 		}
+		&--small {
+			min-height: 75px;
+		}
 	}
 	&__checkbox {
 		opacity: 0;
+		&:focus, &:focus + label::before {
+			outline: rgb(59, 153, 252) auto 5px;
+		}
 	}
 	&__label {
     font-size: 56px;
@@ -173,10 +187,11 @@ a {
 		    -ms-flex-align: center;
 		        align-items: center;
 		&:before{
-				font-family: "Font Awesome 5 Free";
+			font-family: "Font Awesome 5 Free";
 			font-weight: 400;
 			content: "\f111";
 			margin-right: 15px;
+
 		}
 		&--checked::before {
 			font-family: "Font Awesome 5 Free";
@@ -311,7 +326,6 @@ a {
 	}
 
 	button[type="submit"]:hover {
-		margin-top: 34px;
 		cursor: pointer;
 	}
 }
@@ -346,5 +360,17 @@ a {
     color: white;
     font-size: 24px;
     font-weight: 500;
+	}
+}
+
+.footer {
+	text-align: center;
+	&__a {
+		font-weight: bold;
+		color: darken($neutral, 5%);
+		&:hover {
+			cursor: pointer;
+			color: $highlight-b;
+		}
 	}
 }

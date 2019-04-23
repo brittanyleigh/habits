@@ -6,7 +6,8 @@ body {
   background-size: 175px; }
 
 a {
-  color: #dadada; }
+  color: #dadada;
+  text-decoration: none; }
 
 .container {
   max-width: 768px;
@@ -27,7 +28,8 @@ a {
 .main {
   position: relative;
   border: solid 2px #fff;
-  border-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   background: #fff;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
@@ -61,6 +63,8 @@ a {
   .header__h4 {
     font-size: 36px;
     margin: 0px; }
+  .header__a:hover, .header__a:focus, .header__a:active {
+    color: #c1c1c1; }
 
 .nav {
   margin: 0 auto;
@@ -125,8 +129,12 @@ a {
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column; }
+    .habit__item--small {
+      min-height: 75px; }
   .habit__checkbox {
     opacity: 0; }
+    .habit__checkbox:focus, .habit__checkbox:focus + label::before {
+      outline: #3b99fc auto 5px; }
   .habit__label {
     font-size: 56px;
     color: white;
@@ -240,7 +248,6 @@ a {
       margin-bottom: 25px;
       font-size: 24px; } }
 .profile button[type="submit"]:hover, .signup button[type="submit"]:hover {
-  margin-top: 34px;
   cursor: pointer; }
 
 .signup .habit:nth-child(2) {
@@ -263,5 +270,14 @@ a {
   color: white;
   font-size: 24px;
   font-weight: 500; }
+
+.footer {
+  text-align: center; }
+  .footer__a {
+    font-weight: bold;
+    color: #cdcdcd; }
+    .footer__a:hover {
+      cursor: pointer;
+      color: #9face6; }
 
 /*# sourceMappingURL=habits.css.map */
