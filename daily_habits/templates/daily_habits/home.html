@@ -2,12 +2,12 @@
 
 {% block content %}
     <div class="flex-content logged-out">
-        <div class="habit green">
-            <a href="{% url 'signup' %}" class="default-btn list-item">
-                <h4><span>Sign Up</span></h4>
+        <div class="habit habit--secondary logged-out__habit">
+            <a href="{% url 'signup' %}" class="btn btn--default habit__item">
+                <h4 class="btn__h4"><span>Sign Up</span></h4>
             </a>
-            <a href="{% url 'login' %}" class="default-btn list-item">
-                <h4><span>Login</span></h4>
+            <a href="{% url 'login' %}" class="btn btn--default habit__item">
+                <h4 class="btn__h4"><span>Login</span></h4>
             </a>
         </div>
     </div>

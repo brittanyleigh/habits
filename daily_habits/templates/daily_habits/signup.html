@@ -1,13 +1,12 @@
 {% extends 'daily_habits/base.html' %}
 
 {% block content %}
-<div>
-  <form method="post" class="post-form flex-content signup">
+  <form method="post" class="post-form flex-content habits-form signup">
     {% csrf_token %}
-    <div class="habit purple">
+    <div class="signup__habit habit--tertiary">
         {% for field in form %}
 
-          <div class="list-item">
+          <div class="habit__item habit__item--vertical">
             {{ field.label_tag }}
             {{ field }}
             {% for error in field.errors %}
@@ -15,10 +14,9 @@
             {% endfor %}
           </div>
         {% endfor %}
-        <button type="submit" class="default-btn list-item">
-            <h4><span>Sign up</span></h4>
+        <button type="submit" class="btn btn--default habit__item">
+            <h4 class="btn__h4"><span>Sign up</span></h4>
         </button>
     </div>
   </form>
-</div>
 {% endblock %}

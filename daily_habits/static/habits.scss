@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
 
 $font-family: 'Quicksand', sans-serif;
-$gray: #dadada;
+$neutral: #dadada;
+$primary-a: #48c6ef;
+$primary-b: #6f86d6;
+$secondary-a: #bae15d;
+$secondary-b: #00e3ae;
+$tertiary-a: #9f93f1;
+$tertiary-b: #8368ad;
+$highlight-a: #74ebd5;
+$highlight-b: #9face6;
 
 body {
 	margin: 0px;
@@ -11,12 +19,12 @@ body {
 }
 
 a {
-	color: $gray;
+	color: $neutral;
 }
 .container {
 	max-width: 768px;
 	margin: 15px auto;
-	border: solid 10px $gray;
+	border: solid 10px $neutral;
 	border-radius: 25px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -25,8 +33,13 @@ a {
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
+	@media screen and (max-width: 768px){
+		border-color: transparent;
+	}
 }
+
 .main {
+	position: relative;
 	border: solid 2px #fff;
 	border-radius: 25px;
 	background: #fff;
@@ -45,25 +58,34 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    color: $gray;
+    color: $neutral;
     padding: 0px 15px;
     background: white;
 		border-top-left-radius: 15px;
 		border-top-right-radius: 15px;
+		margin: 0px;
 
-    h1 {
-    	background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
-    	background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+		&__li {
+			display: block;
+		}
+    &__h1 {
+    	background-image: -webkit-gradient(linear, left top, right top, from($highlight-a), to($highlight-b));
+    	background-image: linear-gradient(to right, $highlight-a 0%, $highlight-b 100%);
     	-webkit-background-clip: text;
 		  -webkit-text-fill-color: transparent;
 	    margin-right: auto;
 	    margin-left: auto;
     }
 
-    h4 {
+    &__h4 {
     	font-size: 36px;
 	    margin: 0px;
     }
+}
+
+.nav {
+	margin: 0 auto;
+	display: block;
 }
 
 .flex-content {
@@ -82,85 +104,37 @@ a {
             justify-content: center;
 }
 
-.blue {
-	background: blue;
-}
-
-.green {
-	background: green;
-}
-
-.purple {
-	background: purple;
-}
-
 .habit {
 	width: 100%;
-    border: solid 1px white;
-    border-right: 0px;
-    border-left: 0px;
+  border: solid 1px white;
+  border-right: 0px;
+  border-left: 0px;
 
-	label {
-	    font-size: 56px;
-	    color: white;
-	    display: -webkit-box;
-	    display: -ms-flexbox;
-	    display: flex;
-		-webkit-box-align: center;
-		    -ms-flex-align: center;
-		        align-items: center;
-
-	    @media screen and (max-width: 650px){
-    	    font-size: 36px;
-		    padding: 15px;
-	    }
-
-	    &:hover {
-	    	cursor: pointer;
-	    }
+	&--primary {
+		background-image: -webkit-gradient(linear, left bottom, left top, from($primary-a), to($primary-b));
+		background-image: linear-gradient(to top, $primary-a 0%, $primary-b 100%);
 	}
-	h3 {
-		font-size: 56px;
-	    color: white;
+
+	&--secondary {
+		background-image: -webkit-gradient(linear, left bottom, left top, from($secondary-a), to($secondary-b));
+		background-image: linear-gradient(to top, $secondary-a 0%, $secondary-b 100%);
 	}
-}
 
-.home {
-	label {
-		margin-left: -12px; // to account for checkbox element
+	&--tertiary {
+		background-image: -webkit-gradient(linear, left bottom, left top, from($tertiary-a), to($tertiary-b));
+		background-image: linear-gradient(to top, $tertiary-a 0%, $tertiary-b 100%);
 	}
-}
 
-.incomplete {
-	opacity: .5;
-}
-
-.blue {
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#48c6ef), to(#6f86d6));
-	background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
-}
-
-.green {
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#bae15d), to(#00e3ae));
-	background-image: linear-gradient(to top, #bae15d 0%, #00e3ae 100%);
-}
-
-.purple {
-	background-image: -webkit-gradient(linear, left bottom, left top, from(#9f93f1), to(#8368ad));
-	background-image: linear-gradient(to top, #9f93f1 0%, #8368ad 100%);
-}
-
-.gray {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to(#dadada));
-  background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%);
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
-}
-
-form {
-	margin-bottom: 0px;
-}
-.list-item {
+	&--neutral {
+	  background-image: -webkit-gradient(linear, left bottom, left top, from(#ffffff), to($neutral));
+	  background-image: linear-gradient(to top, #ffffff 0%, $neutral 100%);
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+	}
+	&--incomplete {
+		opacity: .5;
+	}
+	&__item {
     max-width: 768px;
     margin: 0 auto;
     min-height: 150px;
@@ -174,84 +148,117 @@ form {
         -ms-flex-pack: center;
             justify-content: center;
     text-align: center;
+		color: #fff;
 
     @media screen and (max-width: 650px){
     	min-height: 125px;
     }
+		&--vertical {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+					-ms-flex-direction: column;
+							flex-direction: column;
+		}
+	}
+	&__checkbox {
+		opacity: 0;
+	}
+	&__label {
+    font-size: 56px;
+    color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		&:before{
+				font-family: "Font Awesome 5 Free";
+			font-weight: 400;
+			content: "\f111";
+			margin-right: 15px;
+		}
+		&--checked::before {
+			font-family: "Font Awesome 5 Free";
+			font-weight: 900;
+			content: "\f058";
+		}
+
+    @media screen and (max-width: 650px){
+	    font-size: 36px;
+	    padding: 15px;
+    }
+
+    &:hover {
+    	cursor: pointer;
+    }
+	}
+	&__h3 {
+		font-size: 56px;
+	}
 }
 
-.default-btn, .secondary-btn {
+.habits-form {
+	margin-bottom: 0px;
+	label {
+		margin-left: -12px; // to account for checkbox element
+	}
+}
+
+.btn {
 	min-height: 75px;
 	margin: 30px auto;
 	border: none;
-    padding: 0px;
-    background: transparent;
-    text-decoration: none;
+  padding: 0px;
+  background: transparent;
+  text-decoration: none;
 
-	h4 {
-	    border-radius: 10px;
-	    background: white;
-	    margin: 0px 25px;
-	    text-align: center;
+	&__h4 {
+    border-radius: 10px;
+    background: white;
+    margin: 0px 25px;
+    text-align: center;
 
 		&:hover {
-		    margin-top: 4px;
-		    cursor: pointer;
+	    margin-top: 4px;
+	    cursor: pointer;
 		}
 	}
 
 	span {
 		padding: 25px 50px;
-	    font-size: 28px;
-	    text-decoration: none;
-	    background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
-	    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
-	    	-webkit-background-clip: text;
-			  -webkit-text-fill-color: transparent;
-        font-family: "Quicksand", sans-serif;
-	    font-weight: 900;
-	    border-radius: 10px;
-	    border: solid 1px;
-	    border-bottom: solid 5px;
-	    border-color: $gray;
-        display: block;
+    font-size: 28px;
+    text-decoration: none;
+    background-image: -webkit-gradient(linear, left top, right top, from($highlight-a), to($highlight-b));
+    background-image: linear-gradient(to right, $highlight-a 0%, $highlight-b 100%);
+    	-webkit-background-clip: text;
+		  -webkit-text-fill-color: transparent;
+      font-family: "Quicksand", sans-serif;
+    font-weight: 900;
+    border-radius: 10px;
+    border: solid 1px;
+    border-bottom: solid 5px;
+    border-color: $neutral;
+    display: block;
 
-	    &:hover {
-		    text-decoration: none;
-		    border-bottom: solid 1px $gray;
+    &:hover {
+	    text-decoration: none;
+	    border-bottom: solid 1px $neutral;
 		}
 	}
-}
+	&--secondary {
+		margin-top: 0px;
 
-.secondary-btn {
-	margin-top: 0px;
-
-	span {
-		background: $gray;
-		border-color: darken($gray, 10%);
-		-webkit-background-clip: unset;
-			  -webkit-text-fill-color: unset;
+		span {
+			background: $neutral;
+			border-color: darken($neutral, 10%);
+			-webkit-background-clip: unset;
+		  -webkit-text-fill-color: unset;
 	    color: white;
 	    border-radius: 10px;
-        padding: 10px 50px;
+      padding: 10px 50px;
 	    font-size: 24px;
-	}
-}
-
-.checkbox {
-	input[type="checkbox"] {
-	    opacity: 0;
-	}
-	label::before{
-      font-family: "Font Awesome 5 Free";
-	  font-weight: 400;
-	  content: "\f111";
-	  margin-right: 15px;
-	}
-	.checked::before {
-	  font-family: "Font Awesome 5 Free";
-	  font-weight: 900;
-	  content: "\f058";
+		}
 	}
 }
 
@@ -266,22 +273,20 @@ form {
 		width: 100%;
 	}
 	h5 {
-	    font-size: 20px;
+    font-size: 20px;
 	}
-	h3 {
-	}
-	.list-item {
-	    padding: 25px 15px;
-	    -ms-flex-wrap: wrap;
-	        flex-wrap: wrap;
+	.habit__item {
+    padding: 15px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 	}
 }
 
 .profile, .signup {
-
-	label {
+	&__label {
 		font-size: 32px;
 		margin: 0px 10px;
+		color: #fff;
 
 		@media screen and (max-width: 650px){
 			font-size: 24px;
@@ -289,60 +294,57 @@ form {
 	}
 
 	input[type="text"], input[type="password"] {
-	    font-family: "Quicksand", sans-serif;
-	    font-size: 32px;
-        color: #dadada;
-        -webkit-box-shadow: 0 0 0px 1000px white inset;
-        border: solid 1px #dadada;
-	    border-radius: 10px;
-	    margin-top: 5px;
-	    padding: 5px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 32px;
+    color: #dadada;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    border: solid 1px #dadada;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 5px;
 
-	    @media screen and (max-width: 650px){
-    	    max-width: 250px;
-		    margin-bottom: 25px;
-		    font-size: 24px;
-	    }
+    @media screen and (max-width: 650px){
+  	    max-width: 250px;
+	    margin-bottom: 25px;
+	    font-size: 24px;
+    }
 	}
 
 	button[type="submit"]:hover {
 		margin-top: 34px;
 		cursor: pointer;
 	}
-	.list-item {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		    -ms-flex-direction: column;
-		        flex-direction: column;
-	}
 }
 
 .signup {
 	.habit:nth-child(2) {
-	    padding: 30px 0px;
-	    min-height: calc(100% - 143px);
+    padding: 30px 0px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
 	}
 }
 
-.logged-out {
-    height: calc(100% - 83px);
+.logged-out, .signup {
 
-    .habit {
-    	height: 100%;
-    	padding-top: 50px;
-    }
+
+  &__habit {
+		width: 100%;
+  	padding-top: 50px;
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+  }
 }
 
 .error {
-    color: #f5b1b1;
-    font-weight: 500;
-    margin: 0px;
+  color: #f5b1b1;
+  font-weight: 500;
+  margin: 0px;
 }
 
 .not-found {
 	h4 {
-	    color: white;
-	    font-size: 24px;
-	    font-weight: 500;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
 	}
 }

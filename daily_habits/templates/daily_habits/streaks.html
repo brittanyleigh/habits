@@ -3,32 +3,32 @@
 {% block content %}
     <div class="flex-content streaks">
 	{% if request.user.is_authenticated %}
-		<div class="habit blue {% if not habitOne %}incomplete{% endif %}">
-			<div class="list-item">
+		<div class="habit habit--primary {% if not habitOne %}habit--incomplete{% endif %}">
+			<div class="habit__item">
 				<h4>{% if profile.habitOne %}{{ profile.habitOne }}{% else %}Eat Healthy{% endif %} Streak </h4>
-				<h3>{% if habitOne %}{{ habitOne }}{% else %}0{% endif %}</h3>
+				<h3 class="habit__h3" >{% if habitOne %}{{ habitOne }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
 		</div>
-		<div class="habit green {% if not habitTwo %}incomplete{% endif %}">
-			<div class="list-item">
+		<div class="habit habit--secondary {% if not habitTwo %}habit--incomplete{% endif %}">
+			<div class="habit__item">
 				<h4>{% if profile.habitTwo %}{{ profile.habitTwo }}{% else %}Meditate{% endif %} Streak </h4>
-				<h3>{% if habitTwo %}{{ habitTwo }}{% else %}0{% endif %}</h3>
+				<h3 class="habit__h3" >{% if habitTwo %}{{ habitTwo }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
 		</div>
-		<div class="habit purple {% if not habitThree %}incomplete{% endif %}">
-			<div class="list-item">
+		<div class="habit habit--tertiary {% if not habitThree %}habit--incomplete{% endif %}">
+			<div class="habit__item">
 				<h4>{% if profile.habitThree %}{{ profile.habitThree }}{% else %}Exercise{% endif %} Streak </h4>
-				<h3>{% if habitThree %}{{ habitThree }}{% else %}0{% endif %}</h3>
+				<h3 class="habit__h3" >{% if habitThree %}{{ habitThree }}{% else %}0{% endif %}</h3>
 				<h5> Days</h5>
 			</div>
 		</div>
     {% endif %}
     </div>
-    <div class="habit gray">
-	    <a class="default-btn list-item" href="/">
-		    <h4><span>Back Home</span></h4>
+    <div class="habit habit--neutral">
+	    <a class="btn btn--default habit__item" href="/">
+		    <h4 class="btn__h4"><span>Back Home</span></h4>
 		</a>
 	</div>
  {% endblock %}

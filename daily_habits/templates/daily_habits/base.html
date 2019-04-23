@@ -18,21 +18,45 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta charset="UTF-8">
     </head>
-    <body class="container">
+    <body>
+      <div class="container">
         {% if request.user.is_authenticated %}
-        <header class="header" role="banner">
-            <h4><a href="/"><i class="fas fa-home"></i></a></h4>
-            <h1><a href="/">Essentials</a></h1>
-            <h4><a href="{% url 'profile' %}"><i class="fas fa-cog"></i></a></h4>
+        <header role="banner">
+          <nav role="navigation" class="nav">
+            <ul class="header">
+              <li class="header__li">
+                <h4 class="header__h4">
+                  <a href="/" aria-label="Essentials App Home"><i class="fas fa-home"></i></a>
+                </h4>
+              </li>
+              <li class="header__li">
+                <h1 class="header__h1">
+                  <a href="/" aria-label="Essentials App Home">Essentials</a>
+                </h1>
+              </li>
+              <li class="header__li">
+                <h4 class="header__h4">
+                  <a href="{% url 'profile' %}" aria-label="Profile Settings"><i class="fas fa-cog"></i></a>
+                </h4>
+              </li>
+            </ul>
+          </nav>
         </header>
         {% else %}
         <header class="header" role="banner">
-            <h1><a href="/">Essentials</a></h1>
+          <nav role="navigation" class="nav">
+            <ul class="header">
+              <li class="header__li">
+                <h1 class="header__h1"><a href="/">Essentials</a></h1>
+              </li>
+            </ul>
+          </nav>
         </header>
         {% endif %}
         <main role="main" class="main">
           {% block content %}
         </main>
         {% endblock %}
+      </div>
     </body>
 </html>
