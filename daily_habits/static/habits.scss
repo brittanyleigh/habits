@@ -2,14 +2,15 @@
 
 $font-family: 'Quicksand', sans-serif;
 $neutral: #dadada;
-$primary-a: #48c6ef;
-$primary-b: #6f86d6;
-$secondary-a: #bae15d;
-$secondary-b: #00e3ae;
+$dark-neutral: #949494;
+$primary-a: #3cbbe4;
+$primary-b: #596cad;
+$secondary-a: #24c5a7;
+$secondary-b: #2b845d;
 $tertiary-a: #9f93f1;
 $tertiary-b: #8368ad;
-$highlight-a: #74ebd5;
-$highlight-b: #9face6;
+$highlight-a: $primary-a;
+$highlight-b: $tertiary-b;
 
 body {
 	margin: 0px;
@@ -19,7 +20,7 @@ body {
 }
 
 a {
-	color: $neutral;
+	color: $dark-neutral;
 	text-decoration: none;
 }
 .container {
@@ -60,7 +61,6 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    color: $neutral;
     padding: 0px 15px;
     background: white;
 		border-top-left-radius: 15px;
@@ -85,8 +85,9 @@ a {
     }
 
 		&__a {
+			color: $dark-neutral;
 			&:hover, &:focus, &:active {
-				color: darken($neutral, 10%);
+				color: $highlight-b;
 			}
 		}
 }
@@ -138,9 +139,6 @@ a {
 	  background-image: linear-gradient(to top, #ffffff 0%, $neutral 100%);
 		border-bottom-left-radius: 15px;
 		border-bottom-right-radius: 15px;
-	}
-	&--incomplete {
-		opacity: .5;
 	}
 	&__item {
     max-width: 768px;
@@ -198,6 +196,9 @@ a {
 			font-weight: 900;
 			content: "\f058";
 		}
+		&--pull-left {
+			margin-left: -12px; // to account for checkbox element
+		}
 
     @media screen and (max-width: 650px){
 	    font-size: 36px;
@@ -215,9 +216,6 @@ a {
 
 .habits-form {
 	margin-bottom: 0px;
-	label {
-		margin-left: -12px; // to account for checkbox element
-	}
 }
 
 .btn {
@@ -265,8 +263,8 @@ a {
 		margin-top: 0px;
 
 		span {
-			background: $neutral;
-			border-color: darken($neutral, 10%);
+			background: $dark-neutral;
+			border-color: darken($dark-neutral, 10%);
 			-webkit-background-clip: unset;
 		  -webkit-text-fill-color: unset;
 	    color: white;
@@ -311,9 +309,9 @@ a {
 	input[type="text"], input[type="password"] {
     font-family: "Quicksand", sans-serif;
     font-size: 32px;
-    color: #dadada;
+    color: $dark-neutral;
     -webkit-box-shadow: 0 0 0px 1000px white inset;
-    border: solid 1px #dadada;
+    border: solid 1px $neutral;
     border-radius: 10px;
     margin-top: 5px;
     padding: 5px;
@@ -365,9 +363,10 @@ a {
 
 .footer {
 	text-align: center;
+	padding: 10px;
 	&__a {
 		font-weight: bold;
-		color: darken($neutral, 5%);
+		color: $dark-neutral;
 		&:hover {
 			cursor: pointer;
 			color: $highlight-b;

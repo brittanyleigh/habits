@@ -6,7 +6,7 @@ body {
   background-size: 175px; }
 
 a {
-  color: #dadada;
+  color: #949494;
   text-decoration: none; }
 
 .container {
@@ -45,7 +45,6 @@ a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #dadada;
   padding: 0px 15px;
   background: white;
   border-top-left-radius: 15px;
@@ -54,8 +53,8 @@ a {
   .header__li {
     display: block; }
   .header__h1 {
-    background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
-    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#3cbbe4), to(#8368ad));
+    background-image: linear-gradient(to right, #3cbbe4 0%, #8368ad 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-right: auto;
@@ -63,8 +62,10 @@ a {
   .header__h4 {
     font-size: 36px;
     margin: 0px; }
-  .header__a:hover, .header__a:focus, .header__a:active {
-    color: #c1c1c1; }
+  .header__a {
+    color: #949494; }
+    .header__a:hover, .header__a:focus, .header__a:active {
+      color: #8368ad; }
 
 .nav {
   margin: 0 auto;
@@ -91,11 +92,11 @@ a {
   border-right: 0px;
   border-left: 0px; }
   .habit--primary {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#48c6ef), to(#6f86d6));
-    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); }
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#3cbbe4), to(#596cad));
+    background-image: linear-gradient(to top, #3cbbe4 0%, #596cad 100%); }
   .habit--secondary {
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#bae15d), to(#00e3ae));
-    background-image: linear-gradient(to top, #bae15d 0%, #00e3ae 100%); }
+    background-image: -webkit-gradient(linear, left bottom, left top, from(#24c5a7), to(#2b845d));
+    background-image: linear-gradient(to top, #24c5a7 0%, #2b845d 100%); }
   .habit--tertiary {
     background-image: -webkit-gradient(linear, left bottom, left top, from(#9f93f1), to(#8368ad));
     background-image: linear-gradient(to top, #9f93f1 0%, #8368ad 100%); }
@@ -104,8 +105,6 @@ a {
     background-image: linear-gradient(to top, #ffffff 0%, #dadada 100%);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px; }
-  .habit--incomplete {
-    opacity: .5; }
   .habit__item {
     max-width: 768px;
     margin: 0 auto;
@@ -153,6 +152,8 @@ a {
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
       content: "\f058"; }
+    .habit__label--pull-left {
+      margin-left: -12px; }
     @media screen and (max-width: 650px) {
       .habit__label {
         font-size: 36px;
@@ -164,8 +165,6 @@ a {
 
 .habits-form {
   margin-bottom: 0px; }
-  .habits-form label {
-    margin-left: -12px; }
 
 .btn {
   min-height: 75px;
@@ -186,8 +185,8 @@ a {
     padding: 25px 50px;
     font-size: 28px;
     text-decoration: none;
-    background-image: -webkit-gradient(linear, left top, right top, from(#74ebd5), to(#9face6));
-    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#3cbbe4), to(#8368ad));
+    background-image: linear-gradient(to right, #3cbbe4 0%, #8368ad 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: "Quicksand", sans-serif;
@@ -203,8 +202,8 @@ a {
   .btn--secondary {
     margin-top: 0px; }
     .btn--secondary span {
-      background: #dadada;
-      border-color: #c1c1c1;
+      background: #949494;
+      border-color: #7b7b7b;
       -webkit-background-clip: unset;
       -webkit-text-fill-color: unset;
       color: white;
@@ -236,7 +235,7 @@ a {
 .profile input[type="text"], .profile input[type="password"], .signup input[type="text"], .signup input[type="password"] {
   font-family: "Quicksand", sans-serif;
   font-size: 32px;
-  color: #dadada;
+  color: #949494;
   -webkit-box-shadow: 0 0 0px 1000px white inset;
   border: solid 1px #dadada;
   border-radius: 10px;
@@ -272,12 +271,13 @@ a {
   font-weight: 500; }
 
 .footer {
-  text-align: center; }
+  text-align: center;
+  padding: 10px; }
   .footer__a {
     font-weight: bold;
-    color: #cdcdcd; }
+    color: #949494; }
     .footer__a:hover {
       cursor: pointer;
-      color: #9face6; }
+      color: #8368ad; }
 
 /*# sourceMappingURL=habits.css.map */

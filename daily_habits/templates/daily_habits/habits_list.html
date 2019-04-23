@@ -8,19 +8,19 @@
   		<div class="habit habit--primary {% if not habits.habitOneCompleted %}habit--incomplete{% endif %}">
   			<div class="habit__item">
   				<input id="habitOneCompleted" class="habit__checkbox" type="checkbox" name="habitOneCompleted" {% if habits.habitOneCompleted %} checked {% endif %}>
-      		<label for="habitOneCompleted" class="habit__label {% if habits.habitOneCompleted %}habit__label--checked{% endif %}">{% if profile.habitOne %}{{ profile.habitOne }}{% else %}Eat Healthy{% endif %} </label>
+      		<label for="habitOneCompleted" class="habit__label habit__label--pull-left {% if habits.habitOneCompleted %}habit__label--checked{% endif %}">{% if profile.habitOne %}{{ profile.habitOne }}{% else %}Eat Healthy{% endif %} </label>
 				</div>
 			</div>
 			<div class="habit habit--secondary {% if not habits.habitTwoCompleted %}habit--incomplete{% endif %}">
 				<div class="habit__item">
 			    <input id="habitTwoCompleted" class="habit__checkbox" type="checkbox" name="habitTwoCompleted" {% if habits.habitTwoCompleted %} checked {% endif %}>
-					<label for="habitTwoCompleted" class="habit__label {% if habits.habitTwoCompleted %}habit__label--checked{% endif %}">{% if profile.habitTwo %}{{ profile.habitTwo }}{% else %}Meditate{% endif %} </label>
+					<label for="habitTwoCompleted" class="habit__label habit__label--pull-left {% if habits.habitTwoCompleted %}habit__label--checked{% endif %}">{% if profile.habitTwo %}{{ profile.habitTwo }}{% else %}Meditate{% endif %} </label>
 				</div>
 			</div>
 			<div class="habit habit--tertiary {% if not habits.habitThreeCompleted %}habit--incomplete{% endif %}">
 				<div class="habit__item">
 			    <input id="habitThreeCompleted" class="habit__checkbox" type="checkbox" name="habitThreeCompleted" {% if habits.habitThreeCompleted %} checked {% endif %}>
-			    <label for="habitThreeCompleted" class="habit__label {% if habits.habitThreeCompleted %}habit__label--checked{% endif %}">{% if profile.habitThree %}{{ profile.habitThree }}{% else %}Exercise{% endif %} </label>
+			    <label for="habitThreeCompleted" class="habit__label habit__label--pull-left {% if habits.habitThreeCompleted %}habit__label--checked{% endif %}">{% if profile.habitThree %}{{ profile.habitThree }}{% else %}Exercise{% endif %} </label>
 				</div>
 			</div>
 	    </form>
