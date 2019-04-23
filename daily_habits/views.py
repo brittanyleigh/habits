@@ -70,8 +70,8 @@ def streaks(request):
     profile = UserInfo.objects.filter(user=request.user).first()
 
     habitOneStreakStart = Day.objects.filter(date__lte=yesterday, habitOneCompleted=False, user=request.user).order_by('-date').first()
-    if habitOneStreakStart:
-        habitOneStreak = (today - habitOneStreakStart.date.date()).days 
+    if habitOneStreakStart and yesterday_habits is not None:
+        habitOneStreak = (today - habitOneStreakStart.date.date()).days
         if yesterday_habits and not yesterday_habits.habitOneCompleted:
             habitOneStreak = 0
     else:
@@ -80,19 +80,18 @@ def streaks(request):
         habitOneStreak += 1
 
     habitTwoStreakStart = Day.objects.filter(date__lte=yesterday, habitTwoCompleted=False, user=request.user).order_by('-date').first()
-    if habitTwoStreakStart:
-        habitTwoStreak = (today - habitTwoStreakStart.date.date()).days 
+    if habitTwoStreakStart and yesterday_habits is not None:
+        habitTwoStreak = (today - habitTwoStreakStart.date.date()).days
         if yesterday_habits and not yesterday_habits.habitTwoCompleted:
             habitTwoStreak = 0
     else:
         habitTwoStreak = 0
     if today_habits and today_habits.habitTwoCompleted:
         habitTwoStreak += 1
-    
 
     habitThreeStreakStart = Day.objects.filter(date__lte=yesterday, habitThreeCompleted=False, user=request.user).order_by('-date').first()
-    if habitThreeStreakStart:
-        habitThreeStreak = (today - habitThreeStreakStart.date.date()).days 
+    if habitThreeStreakStart and yesterday_habits is not None:
+        habitThreeStreak = (today - habitThreeStreakStart.date.date()).days
         if yesterday_habits and not yesterday_habits.habitThreeCompleted:
             habitThreeStreak = 0
     else:
