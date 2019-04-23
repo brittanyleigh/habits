@@ -364,6 +364,16 @@ a {
 .footer {
 	text-align: center;
 	padding: 10px;
+	.habit{
+		border-bottom-left-radius: 15px;
+		border-bottom-right-radius: 15px;
+		&__item {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		}
+	}
 	&__a {
 		font-weight: bold;
 		color: $dark-neutral;
